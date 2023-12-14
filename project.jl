@@ -74,10 +74,10 @@ function scanRanges(
     distanceToSource = norm(toSource)
 
     sin_a = object.radius / norm(p)
-    cos_a = sqrt(1.0 - sin_a^2)
+    cos_a = sqrt(max(0.0, 1.0 - sin_a^2))
 
     sin_b = abs(dot(camNormal, toSource)) / distanceToSource
-    cos_b = -sqrt(1.0 - sin_b^2)
+    cos_b = -sqrt(max(0.0, 1.0 - sin_b^2))
 
     maxDist = distanceToSource * abs(sin_a / (sin_a * cos_b + cos_a * sin_b))
 
@@ -208,7 +208,7 @@ function projectObject!(
 
     relativeOrigin = geom.sourcePos - object.center
     c = dot(relativeOrigin, relativeOrigin) - object.radius^2
-    limit = sqrt(c)
+    limit = sqrt(max(0.0, c))
 
     for y in yrange
         for x in xrange
