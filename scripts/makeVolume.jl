@@ -1,5 +1,7 @@
 using Serialization
-using AnalyticPhantoms
+
+include("../AnalyticPhantoms.jl")
+using ..AnalyticPhantoms
 
 scenePath = ARGS[1]
 voxelSize = parse(Float64, ARGS[2])

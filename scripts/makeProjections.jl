@@ -1,5 +1,7 @@
 using Serialization
-using AnalyticPhantoms
+
+include("../AnalyticPhantoms.jl")
+using ..AnalyticPhantoms
 
 scenePath = ARGS[1]
 dataDir = ARGS[2]

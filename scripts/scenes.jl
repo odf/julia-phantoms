@@ -1,4 +1,5 @@
-using AnalyticPhantoms
+include("../AnalyticPhantoms.jl")
+using ..AnalyticPhantoms
 
 
 set(val, obj) = SceneItem(obj, val)

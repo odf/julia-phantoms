@@ -1,5 +1,7 @@
-using AnalyticPhantoms
 using ArgParse
+
+include("../AnalyticPhantoms.jl")
+using ..AnalyticPhantoms
 
 
 function parseCommandline()
