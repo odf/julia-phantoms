@@ -26,7 +26,7 @@ def readVolumeSize(path):
     with open(path, 'r') as f:
         for line in f.readlines():
             if line.startswith('sizeXYZ:'):
-                return map(float, line.split()[1:])
+                return map(int, line.split()[1:])
 
 
 def rawData(path):
