@@ -1,29 +1,21 @@
 using Serialization
 
-include("../AnalyticPhantoms.jl")
+@everywhere include("../AnalyticPhantoms.jl")
 using ..AnalyticPhantoms
 
 scenePath = ARGS[1]
 dataDir = ARGS[2]
+binning = parse(Int64, ARGS[3])
 
 (scene, additive) = open(deserialize, scenePath)
 
 geoms = open(readProjectionGeometries, "$(dataDir)/proj.dat")
 
-pixelSize = 0.278
-camSizePx = 1504
+pixelSize = 0.139 * binning
+camSizePx = div(3008, binning)
 
-open("$(dataDir)/info.dat") do f
-    for line in readlines(f)
-        key, val = map(strip, split(line, ':'))
-        if key == "pixelSize"
-            pixelSize = parse(Float64, val)
-        elseif key == "camSizePx"
-            camSizePx = parse(Float64, val)
-        end
-    end
-end
-
+print("pixelSize is $(pixelSize)\n")
+print("camSizePx is $(camSizePx)\n")
 
 projectAndWrite(
     scene,
