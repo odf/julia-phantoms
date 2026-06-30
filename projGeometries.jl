@@ -177,6 +177,7 @@ function makeProjectionGeometries(
     traj::HelicalTrajectory{T};
     misalignment::Misalignment{T}=makeMisalignment(0.0),
     motionVectors::Vector{Vec3{T}}=[Vec3{T}(0.0, 0.0, 0.0)],
+    verticalStretch::Float64=1.0,
     recursive::Bool=false
 ) where T <: Real
     sd = geom.sourceDistance + misalignment.sourceDistanceOffset
@@ -225,6 +226,7 @@ function makeProjectionGeometries(
     thetas = mod.(idxInHelix * dTheta + dThetaPass + dThetaHelix, tau)
 
     xs = zs * 0.0
+    zs = zs * verticalStretch
 
     return convertProjectionGeometries(
         cl, sd, thetas, zs, xs, misalignment, motionVectors
