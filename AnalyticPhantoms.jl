@@ -15,14 +15,14 @@ include("rasterize.jl")
 include("run.jl")
 
 
-export Vec3, norm
+export Vec3, norm, normalize, dot, cross
 export SceneItem, SceneObject, Sphere, Cylinder, Cuboid
 export transform, shift, scale, rotate, And, Or, Xor, AndNot
 export BeamGeometry, computeGeometry, writeConeBeamGeometry
 export Trajectory, HelicalTrajectory, PlaneGridTrajectory, StadiumTrajectory
 export helicalTrajectory, planeGridTrajectory, stadiumTrajectory
 export makeMisalignment, convertProjectionGeometries, makeProjectionGeometries
-export writeProjectionGeometries, readProjectionGeometries
+export writeProjectionGeometries, readProjectionGeometries, ProjectionGeometry
 export pushOutFunction, pushFactorCircular, pushFactorPolygonal
 export projectScene, rasterizeScene, projectAndWrite, rasterizeAndWrite
 
