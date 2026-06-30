@@ -274,7 +274,7 @@ function projectScene(
         scene = sceneAt(i, length(projGeoms))
         geom = projGeoms[i]
 
-        if length(scene) > 0
+        @time if length(scene) > 0
             foreach(clear!, buffer)
 
             for k in length(scene) : -1 : 1
