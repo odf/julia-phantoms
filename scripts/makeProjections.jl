@@ -1,6 +1,6 @@
 using Serialization
 
-@everywhere include("../AnalyticPhantoms.jl")
+include("../AnalyticPhantoms.jl")
 using ..AnalyticPhantoms
 
 scenePath = ARGS[1]
