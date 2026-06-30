@@ -24,6 +24,6 @@ projectAndWrite(
     camSizePx,
     outdir=dataDir,
     additive=additive,
-    oversamplingFactor=2,
+    oversamplingFactor=1,
     parallel=true
 )
